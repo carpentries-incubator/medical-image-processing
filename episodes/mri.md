@@ -39,8 +39,7 @@ In terms of computation MRIs, particularly neuro MRIs,
 As a researcher in general we reccomend familiarizing yourself with the various possible sequences of MRI. 
 Some sequences are much more suited to answer certain questions than others. Generally we could divide MR techniques into structural e.g. T1, T2 and so on, 
 functional, diffusion, perfusion, angiographic techniques and spectroscopy. The sequences you work with determining the shape of files to expect. As an example of what you would expect for structural imaging a 3-D array is the norm, but for diffusion imaging you have a 4D tensor plus .bval and .bvec files.  
-If you work directly with a radiology department you will usually get DICOM files that contain whatever sequences were done.
-However if you obtain images from elsewhere they may come in other formats. 
+If you work directly with a radiology department you will usually get DICOM files that contain whatever sequences were done. However if you obtain images from elsewhere they may come in other formats. 
 
 ## File formats
 
@@ -48,14 +47,17 @@ From the MRI scanner, MRI images are initially collected and put in the DICOM fo
 
 #### Common MRI File Formats
 
-| Format Name | File Extension | Origin/Group                                  | More info|
-| ----------- | -------------- | --------------------------------------------- |-----------
-| DICOM       | none or `.dc`    | ACR/NEMA Consortium                           |https://www.dicomstandard.org/  |
-| Analyze     | `.img`/`.hdr`      | Analyze Software, Mayo Clinic                 |https://eeg.sourceforge.net/ANALYZE75.pdf|
-| NIfTI       | `.nii`  (or `.nii.gz`) | Neuroimaging Informatics Technology Initiative|https://brainder.org/2012/09/23/the-nifti-file-format/|
-| MINC        | `.mnc`           | Montreal Neurological Institute               |https://www.mcgill.ca/bic/software/minc|
-| NRRD        | `.nrrd`          |                                               |https://teem.sourceforge.net/nrrd/format.html|
-| MGH         |`.mgz`  or `.mgh` (or `.mgh.gz`) | Massachusetts General Hospital|https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/MghFormat|
+To understand common file formats please review the table on neuroimaging file formats [here](https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/instructor/scanner-to-computer.html#neuroimaging-file-formats-1)
+To get more information than that table we have included links actual documentation:
+
+| Format Name |  More info|
+| ----------- |-----------|
+| DICOM       |https://www.dicomstandard.org/  |
+| Analyze     |https://eeg.sourceforge.net/ANALYZE75.pdf|
+| NIfTI       |https://brainder.org/2012/09/23/the-nifti-file-format/|
+| MINC        |https://www.mcgill.ca/bic/software/minc|
+| NRRD        |https://teem.sourceforge.net/nrrd/format.html|
+| MGH         |https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/MghFormat|
 
 
 
@@ -67,6 +69,14 @@ We can learn how to run `dcm2niix` by taking a look at its help menu:
 ```bash
 dcm2niix -help
 ```
+
+Now we will extract an actual DICOM over to NiFTI format. 
+
+```bash
+dcm2niix -i need_t0-add-my-file -o /mybrainmri/...
+```
+
+Many people prefer working with `dcm2bids` to preconfigure such long bash commands. 
 One of the advantages of working with `dcm2niix` is that it can be used to create Brain Imaging Data Structure (BIDS) files, since it outputs a NIfTI and a JSON with metadata ready to fit into the BIDS standard. [BIDS](https://bids.neuroimaging.io/) is a widely adopted standard of how data from neuroimaging research can be organized. The organization of data and files is crucial for seamless collaboration across research groups and even between individual researchers. Some pipelines assume your data is organized in BIDS structure, and these are sometimes called [BIDS Apps](https://bids-apps.neuroimaging.io/apps/).
 
 Some of the more popular examples are:
