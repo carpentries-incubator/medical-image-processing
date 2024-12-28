@@ -36,7 +36,7 @@ In terms of computation MRIs, particularly neuro MRIs,
  Three critical differences between MRIs and other medical imaging are image orientation in terms of 
  display conventions, typical file types and typical packages used for processing. In this lesson we will cover these three issues.
 
-As a researcher in general we reccomend familiarizing yourself with the various possible sequences of MRI. 
+As a researcher in general we recommend familiarizing yourself with the various possible sequences of MRI. 
 Some sequences are much more suited to answer certain questions than others. Generally we could divide MR techniques into structural e.g. T1, T2 and so on, 
 functional, diffusion, perfusion, angiographic techniques and spectroscopy. The sequences you work with determining the shape of files to expect. As an example of what you would expect for structural imaging a 3-D array is the norm, but for diffusion imaging you have a 4D tensor plus .bval and .bvec files.  
 If you work directly with a radiology department you will usually get DICOM files that contain whatever sequences were done. However if you obtain images from elsewhere they may come in other formats. 
@@ -80,8 +80,8 @@ Some of the more popular examples are:
 - `SPM`
 - `MRtrix3_connectome`
 
-We reccomend the [BIDS starter-kit website](https://bids-standard.github.io/bids-starter-kit/#) for learning the basics of this standard.
-Working with BIDS or and much of the array of tools available for brain MRIs is often facilitated by some familiarity with writing command line. This could present bit of a problem in terms of scientific reproducibility. One option is to leave bash scripts and good documentation in a repository. Another is to use a pythonic interface to such command line tools. One possibility for this will be discused in the next section.
+We recommend the [BIDS starter-kit website](https://bids-standard.github.io/bids-starter-kit/#) for learning the basics of this standard.
+Working with BIDS or and much of the array of tools available for brain MRIs is often facilitated by some familiarity with writing command line. This could present bit of a problem in terms of scientific reproducibility. One option is to leave bash scripts and good documentation in a repository. Another is to use a pythonic interface to such command line tools. One possibility for this will be discussed in the next section.
 
 ## Libraries
 
