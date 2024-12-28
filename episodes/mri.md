@@ -483,6 +483,12 @@ We previously inspected the signal intensity of the voxel at coordinates (10,20,
 We could look at the whole image at once by using a viewer. We can even use code to make a viewer.
 
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+import ipywidgets as widget
+import nibabel as nib
+import importlib
+
 
 class NiftiSliceViewer:
     """
@@ -534,21 +540,30 @@ class NiftiSliceViewer:
 NiftiSliceViewer('data/mri//OBJECT_phantom_T2W_TSE_Cor_14_1.nii')
 
 ```
+Notice our viewer has axial, saggital and coronal slices. These are anatomical terms that allow us to make some assumptions about where things are in space if we assume the patient went into the machine in a certain way. 
+When we look at an abstract image, these terms have little meaning, but let's take a look at a head.  
 
- We can also look at just one slice at a time. We've already indexed the data at each x-, y-, and z-axis. Let's use `matplotlib`:
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-```python
-import matplotlib.pyplot as plt
-%matplotlib inline
+## Challenge: Understanding anatomical terms for brains
 
-slices = [x_slice, y_slice, z_slice]
+Use the internet to read at least two sources on the meaning of the terms axial, coronal and saggital.
+Write definitions for axial, saggital and coronal in terms of how they slice up the head at the eyes in your own words.
 
-fig, axes = plt.subplots(1, len(slices))
-for i, slice in enumerate(slices):
-    axes[i].imshow(slice.T, cmap="gray", origin="lower")
-```
+:::::::::::::::  solution
 
-Now, we're shifting our focus away from discussing our data to address the final crucial attribute of a NIfTI.
+## Solution
+
+
+Axial: Slices the head as if slicing across both eyes, such that there is a slice between higher and lower levels
+Saggital: Slicing between or on the side of the eyes, such that there is a slice between more left and more right
+Coronal: Slicing both eyes such that there is a slice between front and back levels
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+This brings us to the final crucial attribute of a NIfTI we will discuss: affine.
 
 ##### 3. Affine
 
