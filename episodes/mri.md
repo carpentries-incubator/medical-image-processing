@@ -492,7 +492,8 @@ import importlib
 
 class NiftiSliceViewer:
     """
-    A class to examine slices of MRIs, which are in Nifti Format
+    A class to examine slices of MRIs, which are in Nifti Format. Similar code appears
+    in several open source liberally licensed libraries written by drcandacemakedamoore 
 
     """
 
@@ -514,7 +515,6 @@ class NiftiSliceViewer:
         orient = {"sag": [1, 2, 0], "cor": [2, 0, 1], "axial": [0, 1, 2]}
         self.vol = np.transpose(self.volume, orient[view])
         maxZ = self.vol.shape[2] - 1
-        # maxC = 300
 
         self.widgets.interact(
             self.plot_slice,
