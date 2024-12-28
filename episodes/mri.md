@@ -48,7 +48,7 @@ From the MRI scanner, MRI images are initially collected and put in the DICOM fo
 #### Common MRI File Formats
 
 To understand common file formats please review the table on neuroimaging file formats [here](https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/instructor/scanner-to-computer.html#neuroimaging-file-formats-1)
-To get more information than that table we have included links actual documentation:
+To get more information than that table we have included links to documentation websites:
 
 | Format Name |  More info|
 | ----------- |-----------|
@@ -62,22 +62,15 @@ To get more information than that table we have included links actual documentat
 
 
 NIfTI is one of the most ubiquitous file formats for storing neuroimaging data.
-We can convert DICOM data to NIfTI using [dcm2niix](https://github.com/rordenlab/dcm2niix) software.
+We can convert DICOM data to NIfTI using [dcm2niix](https://github.com/rordenlab/dcm2niix) software. Many people prefer working with `dcm2bids` to preconfigure long bash commands needed for `dcm2niix`. 
 
-We can learn how to run `dcm2niix` by taking a look at its help menu:
 
-```bash
-dcm2niix -help
-```
+For example if you just want to write bash using dcm2niix or dcm2bids to place a convert a hypothetical DICOM file (in a directory /hypofile) into a hypothetical directory called /converted on your machine you can do it in the following way: 
 
-Now we will extract an actual DICOM over to NiFTI format. 
+`dcm2biids_helper -d /hypofile -o /converted`
 
-```bash
-dcm2niix -i need_t0-add-my-file -o /mybrainmri/...
-```
 
-Many people prefer working with `dcm2bids` to preconfigure such long bash commands. 
-One of the advantages of working with `dcm2niix` is that it can be used to create Brain Imaging Data Structure (BIDS) files, since it outputs a NIfTI and a JSON with metadata ready to fit into the BIDS standard. [BIDS](https://bids.neuroimaging.io/) is a widely adopted standard of how data from neuroimaging research can be organized. The organization of data and files is crucial for seamless collaboration across research groups and even between individual researchers. Some pipelines assume your data is organized in BIDS structure, and these are sometimes called [BIDS Apps](https://bids-apps.neuroimaging.io/apps/).
+One of the advantages of working with `dcm2niix`, whether you work with it directly or with a tool like `dcm2bids` is that it can be used to create Brain Imaging Data Structure (BIDS) files, since it outputs a NIfTI and a JSON with metadata ready to fit into the BIDS standard. [BIDS](https://bids.neuroimaging.io/) is a widely adopted standard of how data from neuroimaging research can be organized. The organization of data and files is crucial for seamless collaboration across research groups and even between individual researchers. Some pipelines assume your data is organized in BIDS structure, and these are sometimes called [BIDS Apps](https://bids-apps.neuroimaging.io/apps/).
 
 Some of the more popular examples are:
 
