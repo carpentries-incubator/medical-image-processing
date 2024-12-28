@@ -47,8 +47,8 @@ From the MRI scanner, MRI images are initially collected and put in the DICOM fo
 
 #### Common MRI File Formats
 
-To understand common file formats please review the table on neuroimaging file formats [here](https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/instructor/scanner-to-computer.html#neuroimaging-file-formats-1)
-To get more information than that table we have included links to documentation websites:
+To understand common file formats please review the table on neuroimaging file formats [here.](https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/instructor/scanner-to-computer.html#neuroimaging-file-formats-1)
+To get even more information than that table we have included links to documentation websites:
 
 | Format Name |  More info|
 | ----------- |-----------|
@@ -62,12 +62,12 @@ To get more information than that table we have included links to documentation 
 
 
 NIfTI is one of the most ubiquitous file formats for storing neuroimaging data.
-We can convert DICOM data to NIfTI using [dcm2niix](https://github.com/rordenlab/dcm2niix) software. Many people prefer working with `dcm2bids` to preconfigure long bash commands needed for `dcm2niix`. 
+We can convert DICOM data to NIfTI using [dcm2niix](https://github.com/rordenlab/dcm2niix) software. Many people prefer working with `dcm2bids` to configure long bash commands needed for `dcm2niix`. 
 
 
-For example if you just want to write bash using dcm2niix or dcm2bids to place a convert a hypothetical DICOM file (in a directory /hypofile) into a hypothetical directory called /converted on your machine you can do it in the following way: 
+For example if you just want to write bash using dcm2niix or dcm2bids to place a convert a hypothetical DICOM file (in a directory /hypothetical) into a hypothetical directory called /converted on your machine you can do it in the following way: 
 
-`dcm2biids_helper -d /hypofile -o /converted`
+`dcm2biids_helper -d /hypothetical -o /converted`
 
 
 One of the advantages of working with `dcm2niix`, whether you work with it directly or with a tool like `dcm2bids` is that it can be used to create Brain Imaging Data Structure (BIDS) files, since it outputs a NIfTI and a JSON with metadata ready to fit into the BIDS standard. [BIDS](https://bids.neuroimaging.io/) is a widely adopted standard of how data from neuroimaging research can be organized. The organization of data and files is crucial for seamless collaboration across research groups and even between individual researchers. Some pipelines assume your data is organized in BIDS structure, and these are sometimes called [BIDS Apps](https://bids-apps.neuroimaging.io/apps/).
@@ -477,7 +477,65 @@ We've been slicing and dicing images but we have no idea what they look like. In
 
 #### Visualizing the Data
 
-We previously inspected the signal intensity of the voxel at coordinates (10,20,3). Let's see what out data looks like when we slice it at this location. We've already indexed the data at each x-, y-, and z-axis. Let's use `matplotlib`:
+
+We previously inspected the signal intensity of the voxel at coordinates (10,20,3).
+
+We could look at the whole image at once by using a viewer. We can even use code to make a viewer.
+
+```python
+
+class NiftiSliceViewer:
+    """
+    A class to examine slices of MRIs, which are in Nifti Format
+
+    """
+
+    def __init__(self, volume_str, figsize=(10, 10)):
+        self.nifti = nib.load(volume_str)
+        self.volume = self.nifti.get_fdata()
+        self.figsize = figsize
+        self.v = [np.min(self.volume), np.max(self.volume)]
+        self.widgets = importlib.import_module('ipywidgets')
+
+        self.widgets.interact(self.transpose, view=self.widgets.Dropdown(
+            options=['axial', 'saggital', 'coronal'],
+            value='axial',
+            description='View:',
+            disabled=False))
+
+    def transpose(self, view):
+        # transpose the image to orient according to the slice plane selection
+        orient = {"sag": [1, 2, 0], "cor": [2, 0, 1], "axial": [0, 1, 2]}
+        self.vol = np.transpose(self.volume, orient[view])
+        maxZ = self.vol.shape[2] - 1
+        # maxC = 300
+
+        self.widgets.interact(
+            self.plot_slice,
+            z=self.widgets.IntSlider(
+                min=0,
+                max=maxZ,
+                step=1,
+                continuous_update=True,
+                description='Image Slice:'
+            ),
+        )
+
+    def plot_slice(self, z):
+        # plot slice for plane which will match the widget intput
+        self.fig = plt.figure(figsize=self.figsize)
+        plt.imshow(
+            self.vol[:, :, z],
+            cmap="gray",
+            vmin=0,
+            vmax=self.v[1],
+        )
+# now we wil use our class on our image        
+NiftiSliceViewer('data/mri//OBJECT_phantom_T2W_TSE_Cor_14_1.nii')
+
+```
+
+ We can also look at just one slice at a time. We've already indexed the data at each x-, y-, and z-axis. Let's use `matplotlib`:
 
 ```python
 import matplotlib.pyplot as plt
@@ -570,6 +628,7 @@ We rely on anatomical position as the basis of how we orient ourselves,
 To get a deeper view of MRI processing in Python you can explore lessons from Carpentries Incubators; namely:
 
  1. [Introduction to Working with MRI Data in Python](https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/)
- 2. [Introduction to dMRI](https://carpentries-incubator.github.io/SDC-BIDS-dMRI/)
- 3. [Functional Neuroimaging Analysis in Python ](https://carpentries-incubator.github.io/SDC-BIDS-fMRI/)
+ 2. [Introduction to Structural MRI](https://carpentries-incubator.github.io/SDC-BIDS-sMRI/)
+ 3. [Introduction to dMRI](https://carpentries-incubator.github.io/SDC-BIDS-dMRI/)
+ 4. [Functional Neuroimaging Analysis in Python ](https://carpentries-incubator.github.io/SDC-BIDS-fMRI/)
 
