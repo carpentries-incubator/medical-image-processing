@@ -126,7 +126,7 @@ t2_img = nib.load("data/mri//OBJECT_phantom_T2W_TSE_Cor_14_1.nii")
 ```
 
 When loading a NIfTI file with `NiBabel`, you get a specialized data object that includes all the information stored in the file. Each piece of information is referred to as an **attribute** in Python's terminology. To view all these attributes, simply type `t2_img.` followed by <kbd>Tab</kbd>.
-Today, we'll focus on discussing mainly two attributes (`header` and `affine`) and one method (`get_fdata`). 
+We will focus on discussing mainly two attributes (`header` and `affine`) and one method (`get_fdata`). 
 
 ##### 1. Headers
 
@@ -360,7 +360,7 @@ print(t2_data.ndim)
 
 <img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;"/>
 
-*Image from Tropwine, Sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
+*Image by Tropwine, sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
 
 :::::::::::::::::::::::::
 
