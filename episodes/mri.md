@@ -343,7 +343,7 @@ As you might guess there are differences in how your computer handles something 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge: Check Out Attributes of the Array
+## Challenge: Meaning of Attributes of the Array
 
 How can we see the number of dimensions in the `t2_data` array? Once again, all of the attributes of the array can be seen by typing `t2_data.` followed by <kbd>Tab</kbd>. What is the shape of the image? Can you make a guess about then size of a voxel based on the numbers you have here? Why or why not?
 
