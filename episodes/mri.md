@@ -1,7 +1,7 @@
 ---
 title: "Working with MRI"
 teaching: 60
-exercises: 10
+exercises: 30
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -110,10 +110,13 @@ While you may harness sophisticated tools like Freesurfer or FSL to do complex t
 
 Next, we'll cover some details on working with NIfTI files with Nibabel.
 
+
+
+
 #### Reading NIfTI Images
 
 [NiBabel](https://nipy.org/nibabel/) is a Python package for reading and writing neuroimaging data.
-To learn more about how NiBabel handles NIfTIs, refer to the [NiBabel documentation on working with NIfTIs](https://nipy.org/nibabel/nifti_images.html), which this episode heavily references.
+To learn more about how NiBabel handles NIfTIs, refer to the [NiBabel documentation on working with NIfTIs](https://nipy.org/nibabel/nifti_images.html), which this episode heavily references. This part of the lesson is also similar to an existing lessons from The Carpentries Incubator; namely: [Introduction to Working with MRI Data in Python](https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/). This is because in terms of reading and loading data and accessing the image, there are limited possibilities. 
 
 ```python
 import nibabel as nib
@@ -342,7 +345,7 @@ As you might guess there are differences in how your computer handles something 
 
 ## Challenge: Check Out Attributes of the Array
 
-How can we see the number of dimensions in the `t2_data` array? Once again, all of the attributes of the array can be seen by typing `t2_data.` followed by <kbd>Tab</kbd>.
+How can we see the number of dimensions in the `t2_data` array? Once again, all of the attributes of the array can be seen by typing `t2_data.` followed by <kbd>Tab</kbd>. What is the shape of the image? Can you make a guess about then size of a voxel based on the numbers you have here? Why or why not?
 
 :::::::::::::::  solution
 
@@ -362,7 +365,7 @@ print(t2_data.ndim)
 
 *Image by Tropwine, sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
 
-:::::::::::::::::::::::::
+
 
 Remember typical 2D pictures are made out of **pixels**, but a 3D MR image is made up of 3D cubes called **voxels**.
 
@@ -370,11 +373,7 @@ Remember typical 2D pictures are made out of **pixels**, but a 3D MR image is ma
 
 *Sourced with minor modification from Ahmed, M., Garzanich, M., Melaragno, L.E. et al. Exploring CT pixel and voxel size effect on anatomic modeling in mandibular reconstruction. 3D Print Med 10, 21 (2024). https://doi.org/10.1186/s41205-024-00223-0; Creative Commons Attribution 4.0 International License *
 
-What is the shape of the image?
-
-:::::::::::::::  solution
-
-## Solution
+With this in mind we examine the shape:
 
 ```python
 print(t2_data.shape)
@@ -384,13 +383,15 @@ print(t2_data.shape)
 (432, 432, 30)
 ```
 
+The three numbers given here represent the number of values *along a respective dimension (x,y,z)*.
+This image was scanned in 30 slices, each with a resolution of 432 x 432 voxels.
+If each voxel were 1 millimeter, then our image would represent something 3cm tall (so to speak), and this seems unlikely. However, object here is not human, and could be in theory be scanned on a special MRI machine of any size. We can not make a guess from the data we printed here alone about the size of a voxel. We will learn one method to do this later in the episode. 
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The three numbers given here represent the number of values *along a respective dimension (x,y,z)*.
-This image was scanned in 30 slices, each with a resolution of 432 x 432 voxels.
-That means there are `30 * 432 * 432 = 5,598,720` voxels in total!
+
 
 Let's see the type of data inside of the array.
 
@@ -443,7 +444,7 @@ Next, we will explore how to extract and visualize larger regions of interest, s
 
 #### Working with Image Data
 
-Slicing does exactly what it seems to imply. Given a 3D volume, slicing involves extracting a 2D **slice** from our data.
+When we think and speak about about "slicing" colloqiually, we often think about a 2D **slice** from our data. 
 
 ![](fig/slices2.png){alt='T1 weighted'}
 
@@ -459,27 +460,79 @@ z_slice = t2_data[:, :, 9]
 
 This is similar to the indexing we did before to select a single voxel. However, instead of providing a value for each axis, the `:` indicates that we want to grab *all* values from that particular axis.
 
+In the nibabel documentation there are more details on how to use a `slicer` attribute of a nibabel array data. Using this attribute can help to make code more efficient. 
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Challenge: Slicing MRI Data
 
-Select the 20th slice along the y-axis and store it in a variable.
-Then, select the 4th slice along the x-axis and store it in another variable.
+Write a python function using nibabel to take an image string, and coordinates for any slices desired on x, y and z axes; and plot the image slices. Then use the function to display slices of `t2_data` at x = 9, y = 9, and z= 9.
 
 :::::::::::::::  solution
 
 ## Solution
 
 ```python
-y_slice = t2_data[:, 19, :]
-x_slice = t2_data[3, :, :]
+# if in a new notebook re-import
+import nibabel as nib
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def slice_image_data(file_path, x, y, z):
+    # load the image
+    try:
+        img = nib.load(file_path)
+    except Exception as e:
+        print(f"Error loading the image: {e}")
+        return
+
+    # get the image array
+    data = img.get_fdata()
+
+    # slice the image data
+    # and extract a specific slice along each plane
+    z_slice = data[:, :, z]  # slice
+    y_slice = data[:, y, :]  # slice
+    x_slice = data[x, :, :]  # slice
+    # make each slice is 2D by explicitly removing unnecessary dimensions
+    z_slice = z_slice.squeeze()  # this ensures it's a 2D array
+    y_slice = y_slice.squeeze()  
+    x_slice = x_slice.squeeze()  
+    
+    print(z_slice.shape)
+
+    # visualize the slices
+    plt.figure(figsize=(12, 8))
+
+    # plot the z slice
+    plt.subplot(2, 2, 1)
+    plt.imshow(z_slice.T, cmap='gray', origin='lower')
+    plt.title('Z Slice')
+    plt.axis('off')
+
+    # plot the y slice
+    plt.subplot(2, 2, 2)
+    plt.imshow(y_slice.T, cmap='gray', origin='lower')
+    plt.title('Y Slice')
+    plt.axis('off')
+
+    # plot the x slice
+    plt.subplot(2, 2, 3)
+    plt.imshow(x_slice.T, cmap='gray', origin='lower')
+    plt.title('X Slice')
+    plt.axis('off')
+
+slice_image_data('data/mri//OBJECT_phantom_T2W_TSE_Cor_14_1.nii',9,9,9)
 ```
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We've been slicing and dicing images but we have no idea what they look like. In the next section we'll show you one way you can visualize it all together.
+In the above exercise you may note many solutions do not return anything. This is not unusal in Python when we only want a graph or visualization. We really only want an artifact of some functions, however we could return the artifact with more code if needed.
+
+ We've been slicing and dicing images but we have no idea what they look like in a more global sense. In the next section we'll show you one way you can visualize it all together.
 
 #### Visualizing the Data
 
