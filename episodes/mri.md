@@ -360,7 +360,7 @@ print(t2_data.ndim)
 
 <img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;"/>
 
-*Image from Tropwine Sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
+*Image from Tropwine, Sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
 
 :::::::::::::::::::::::::
 
@@ -518,7 +518,7 @@ class NiftiSliceViewer:
 
     def transpose(self, view):
         # transpose the image to orient according to the slice plane selection
-        orient = {"sag": [1, 2, 0], "cor": [2, 0, 1], "axial": [0, 1, 2]}
+        orient = {"saggital": [1, 2, 0], "coronal": [2, 0, 1], "axial": [0, 1, 2]}
         self.vol = np.transpose(self.volume, orient[view])
         maxZ = self.vol.shape[2] - 1
 
