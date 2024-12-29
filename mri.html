@@ -339,7 +339,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Working with MRI</h1>
-        <p>Last updated on 2024-12-28 |
+        <p>Last updated on 2024-12-29 |
 
         <a href="https://github.com/esciencecenter-digital-skills/medical-image-processing/edit/main/episodes/mri.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -694,7 +694,7 @@ image.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -810,7 +810,7 @@ typing <code>t2_data.</code> followed by <kbd>Tab</kbd>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -824,7 +824,10 @@ typing <code>t2_data.</code> followed by <kbd>Tab</kbd>.</p>
 </div>
 <p><code>t2_data</code> contains 3 dimensions. You can think of the data
 as a 3D version of a picture (more accurately, a volume).</p>
-<figure><img src="fig/numpy_arrays.png" alt="Numpy arrays" width="70%;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;" class="figure mx-auto d-block"></figure><p><em>Image from Tropwine Sourced from Wikimedia Commons
+(2024).https://commons.m.wikimedia.org/wiki/<a href="File:3D_array_diagram.svg" class="uri">File:3D_array_diagram.svg</a>; Creative Commons Attribution
+4.0 International License </em></p>
+</div>
 </div>
 </div>
 </div>
@@ -840,7 +843,12 @@ Array<em> (continued)</em>
 <p>Remember typical 2D pictures are made out of <strong>pixels</strong>,
 but a 3D MR image is made up of 3D cubes called
 <strong>voxels</strong>.</p>
-<figure><img src="fig/mri_slices.jpg" alt="MRI slices" width="70%;" class="figure mx-auto d-block"></figure><p>What is the shape of the image?</p>
+<figure><img src="fig/pixel_vs_voxel.png" alt="MRI slices" width="70%;" class="figure mx-auto d-block"></figure><p><em>Sourced with minor modification from Ahmed, M., Garzanich, M.,
+Melaragno, L.E. et al. Exploring CT pixel and voxel size effect on
+anatomic modeling in mandibular reconstruction. 3D Print Med 10, 21
+(2024). <a href="https://doi.org/10.1186/s41205-024-00223-0" class="external-link uri">https://doi.org/10.1186/s41205-024-00223-0</a>; Creative
+Commons Attribution 4.0 International License </em></p>
+<p>What is the shape of the image?</p>
 </div>
 </div>
 </div>
@@ -849,7 +857,7 @@ but a 3D MR image is made up of 3D cubes called
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -937,7 +945,12 @@ analysis.</p>
 <p>Slicing does exactly what it seems to imply. Given a 3D volume,
 slicing involves extracting a 2D <strong>slice</strong> from our
 data.</p>
-<figure><img src="fig/T1w.gif" alt="T1 weighted" class="figure mx-auto d-block"></figure><p>From left to right: sagittal, coronal and axial slices of a
+<figure><img src="fig/slices2.png" alt="T1 weighted" class="figure mx-auto d-block"></figure><p><em>Figure with adaptation from Valdes-Hernandez, P.A., Laffitte
+Nodarse, C., Peraza, J.A. et al. Toward MR protocol-agnostic, unbiased
+brain age predicted from clinical-grade MRIs. Sci Rep 13, 19570 (2023).
+<a href="https://doi.org/10.1038/s41598-023-47021-y" class="external-link uri">https://doi.org/10.1038/s41598-023-47021-y</a> ; Creative
+Commons Attribution 4.0 International License</em></p>
+<p>From left to right: coronal, saggital and axial slices of a
 brain.</p>
 <p>Let’s select the 10th slice in the z-axis of our data:</p>
 <div class="codewrapper sourceCode" id="cb27">
@@ -967,7 +980,7 @@ variable.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1073,7 +1086,7 @@ own words.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Axial: Slices the head as if slicing across both eyes, such that
 there is a slice between higher and lower levels Saggital: Slicing
@@ -1243,9 +1256,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://esciencecenter-digital-skills.github.io/medical-image-processing/mri.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/medical-image-processing/mri.html",
-  "dateCreated": "2024-12-28",
-  "dateModified": "2024-12-28",
-  "datePublished": "2024-12-28"
+  "dateCreated": "2024-12-29",
+  "dateModified": "2024-12-29",
+  "datePublished": "2024-12-29"
 }
 
   </script><script>
