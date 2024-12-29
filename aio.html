@@ -1195,9 +1195,8 @@ specialized data object that includes all the information stored in the
 file. Each piece of information is referred to as an
 <strong>attribute</strong> in Python’s terminology. To view all these
 attributes, simply type <code>t2_img.</code> followed by <kbd>Tab</kbd>.
-Today, we’ll focus on discussing mainly two attributes
-(<code>header</code> and <code>affine</code>) and one method
-(<code>get_fdata</code>).</p>
+We will focus on discussing mainly two attributes (<code>header</code>
+and <code>affine</code>) and one method (<code>get_fdata</code>).</p>
 <div class="section level5">
 <h5 id="headers">1. Headers<a class="anchor" aria-label="anchor" href="#headers"></a>
 </h5>
@@ -1359,7 +1358,7 @@ image.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1476,7 +1475,7 @@ typing <code>t2_data.</code> followed by <kbd>Tab</kbd>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1490,7 +1489,7 @@ typing <code>t2_data.</code> followed by <kbd>Tab</kbd>.</p>
 </div>
 <p><code>t2_data</code> contains 3 dimensions. You can think of the data
 as a 3D version of a picture (more accurately, a volume).</p>
-<figure><img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;" class="figure mx-auto d-block"></figure><p><em>Image from Tropwine Sourced from Wikimedia Commons
+<figure><img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;" class="figure mx-auto d-block"></figure><p><em>Image by Tropwine, sourced from Wikimedia Commons
 (2024).https://commons.m.wikimedia.org/wiki/<a href="File:3D_array_diagram.svg" class="uri">File:3D_array_diagram.svg</a>; Creative Commons Attribution
 4.0 International License </em></p>
 </div>
@@ -1523,7 +1522,7 @@ Commons Attribution 4.0 International License </em></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1647,7 +1646,7 @@ variable.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1702,7 +1701,7 @@ even use code to make a viewer.</p>
 <span id="cb29-27"><a href="#cb29-27" tabindex="-1"></a></span>
 <span id="cb29-28"><a href="#cb29-28" tabindex="-1"></a>    <span class="kw">def</span> transpose(<span class="va">self</span>, view):</span>
 <span id="cb29-29"><a href="#cb29-29" tabindex="-1"></a>        <span class="co"># transpose the image to orient according to the slice plane selection</span></span>
-<span id="cb29-30"><a href="#cb29-30" tabindex="-1"></a>        orient <span class="op">=</span> {<span class="st">"sag"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>], <span class="st">"cor"</span>: [<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="st">"axial"</span>: [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]}</span>
+<span id="cb29-30"><a href="#cb29-30" tabindex="-1"></a>        orient <span class="op">=</span> {<span class="st">"saggital"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>], <span class="st">"coronal"</span>: [<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>], <span class="st">"axial"</span>: [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]}</span>
 <span id="cb29-31"><a href="#cb29-31" tabindex="-1"></a>        <span class="va">self</span>.vol <span class="op">=</span> np.transpose(<span class="va">self</span>.volume, orient[view])</span>
 <span id="cb29-32"><a href="#cb29-32" tabindex="-1"></a>        maxZ <span class="op">=</span> <span class="va">self</span>.vol.shape[<span class="dv">2</span>] <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb29-33"><a href="#cb29-33" tabindex="-1"></a></span>
@@ -1754,7 +1753,7 @@ own words.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Axial: Slices the head as if slicing across both eyes, such that
 there is a slice between higher and lower levels Saggital: Slicing
@@ -2334,7 +2333,7 @@ grid, you will get an error. Can you guess what is it about?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>By default, SITK creates images centered in the origin, which all
 ones spacing. We need to have the same values in the grid and in the
@@ -2673,7 +2672,7 @@ which is readily addressed by invoking the transformation’s
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In this case, there are only 26 images in the volume and the spacing
 between voxels is non-isotropic, and in particular it is the same across
@@ -3447,7 +3446,7 @@ order to select the slices on the y-axis.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb58">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4577,7 +4576,7 @@ annotations from) the ultrasound image data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The image has identifying metadata. You should identify not only the
 name, but the date and place as problematic. You can take three
@@ -4721,7 +4720,7 @@ arguments why and why not</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>In most cases images like the above are de-identified. The image
 above is only an image, not a DICOM with potentially identifying
@@ -4771,7 +4770,7 @@ soft tissue in the image (already loaded into sag_image).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>We can approach the problem in various ways. Below is one solution
 with erosion, dilation and masking:</p>
@@ -5206,7 +5205,7 @@ choose to retain such data?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Metadata related to the machine, image type, and file type are
 generally safe. This information is particularly valuable when sorting
@@ -5295,7 +5294,7 @@ printed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5488,7 +5487,7 @@ on your machine?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>One significant risk of running any model locally is the potential
 for malicious code. Since you need to download the model to your
