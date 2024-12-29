@@ -358,13 +358,17 @@ print(t2_data.ndim)
 
 `t2_data` contains 3 dimensions. You can think of the data as a 3D version of a picture (more accurately, a volume).
 
-<img src="fig/numpy_arrays.png" alt="Numpy arrays" width="70%;"/>
+<img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;"/>
+
+*Image from Tropwine Sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
 
 :::::::::::::::::::::::::
 
 Remember typical 2D pictures are made out of **pixels**, but a 3D MR image is made up of 3D cubes called **voxels**.
 
-<img src="fig/mri_slices.jpg" alt="MRI slices" width="70%;"/>
+<img src="fig/pixel_vs_voxel.png" alt="MRI slices" width="70%;"/>
+
+*Sourced with minor modification from Ahmed, M., Garzanich, M., Melaragno, L.E. et al. Exploring CT pixel and voxel size effect on anatomic modeling in mandibular reconstruction. 3D Print Med 10, 21 (2024). https://doi.org/10.1186/s41205-024-00223-0; Creative Commons Attribution 4.0 International License *
 
 What is the shape of the image?
 
@@ -441,9 +445,11 @@ Next, we will explore how to extract and visualize larger regions of interest, s
 
 Slicing does exactly what it seems to imply. Given a 3D volume, slicing involves extracting a 2D **slice** from our data.
 
-![](fig/T1w.gif){alt='T1 weighted'}
+![](fig/slices2.png){alt='T1 weighted'}
 
-From left to right: sagittal, coronal and axial slices of a brain.
+*Figure with adaptation from Valdes-Hernandez, P.A., Laffitte Nodarse, C., Peraza, J.A. et al. Toward MR protocol-agnostic, unbiased brain age predicted from clinical-grade MRIs. Sci Rep 13, 19570 (2023). https://doi.org/10.1038/s41598-023-47021-y ; Creative Commons Attribution 4.0 International License*
+
+From left to right: coronal, saggital and axial slices of a brain.
 
 Let's select the 10th slice in the z-axis of our data:
 
