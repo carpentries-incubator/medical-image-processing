@@ -358,7 +358,9 @@ print(t2_data.ndim)
 
 `t2_data` contains 3 dimensions. You can think of the data as a 3D version of a picture (more accurately, a volume).
 
-<img src="fig/numpy_arrays.png" alt="Numpy arrays" width="70%;"/>
+<img src="fig/3D_array_diagram.png" alt="Arrays" width="70%;"/>
+
+*Image from Tropwine Sourced from Wikimedia Commons (2024).https://commons.m.wikimedia.org/wiki/File:3D_array_diagram.svg; Creative Commons Attribution 4.0 International License *
 
 :::::::::::::::::::::::::
 
