@@ -457,7 +457,7 @@ open-source terms.</em></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Do not peek, try to solve it yourself. The effort will pay off.</p>
 </div>
@@ -690,7 +690,7 @@ challenges above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Possible solutions include:</p>
 <ul>
@@ -815,7 +815,7 @@ artifacts?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In an absolute total sense, they could have artifacts. Both CT and
 MRI are reconstructed from original data, and the reconstruction will
@@ -976,7 +976,7 @@ any links that you are not going to use.
 <p>Last updated on 2024-12-29 |
 
         <a href="https://github.com/esciencecenter-digital-skills/medical-image-processing/edit/main/episodes/mri.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 70 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 90 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1182,7 +1182,12 @@ Nibabel.</p>
 <p><a href="https://nipy.org/nibabel/" class="external-link">NiBabel</a> is a Python package
 for reading and writing neuroimaging data. To learn more about how
 NiBabel handles NIfTIs, refer to the <a href="https://nipy.org/nibabel/nifti_images.html" class="external-link">NiBabel documentation
-on working with NIfTIs</a>, which this episode heavily references.</p>
+on working with NIfTIs</a>, which this episode heavily references. This
+part of the lesson is also similar to an existing lessons from The
+Carpentries Incubator; namely: <a href="https://carpentries-incubator.github.io/SDC-BIDS-IntroMRI/" class="external-link">Introduction
+to Working with MRI Data in Python</a>. This is because in terms of
+reading and loading data and accessing the image, there are limited
+possibilities.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1363,7 +1368,7 @@ image.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1461,17 +1466,19 @@ effect memory and processing speed. These are not trivial issues if you
 deal with a very large dataset of MRIs. You can save time and memory by
 being conscious about what is cached and using the dataobj property when
 dealing with slices of the array as detailed <a href="https://nipy.org/nibabel/images_and_memory.html" class="external-link">here</a></p>
-<div id="challenge-check-out-attributes-of-the-array" class="callout challenge">
+<div id="challenge-meaning-of-attributes-of-the-array" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="challenge-check-out-attributes-of-the-array" class="callout-inner">
-<h3 class="callout-title">Challenge: Check Out Attributes of the
+<div id="challenge-meaning-of-attributes-of-the-array" class="callout-inner">
+<h3 class="callout-title">Challenge: Meaning of Attributes of the
 Array</h3>
 <div class="callout-content">
 <p>How can we see the number of dimensions in the <code>t2_data</code>
 array? Once again, all of the attributes of the array can be seen by
-typing <code>t2_data.</code> followed by <kbd>Tab</kbd>.</p>
+typing <code>t2_data.</code> followed by <kbd>Tab</kbd>. What is the
+shape of the image? Can you make a guess about then size of a voxel
+based on the numbers you have here? Why or why not?</p>
 </div>
 </div>
 </div>
@@ -1480,7 +1487,7 @@ typing <code>t2_data.</code> followed by <kbd>Tab</kbd>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1497,19 +1504,6 @@ as a 3D version of a picture (more accurately, a volume).</p>
 <figure><img src="../fig/3D_array_diagram.png" alt="Arrays" width="70%;" class="figure mx-auto d-block"></figure><p><em>Image by Tropwine, sourced from Wikimedia Commons
 (2024).https://commons.m.wikimedia.org/wiki/<a href="../File:3D_array_diagram.svg" class="uri">File:3D_array_diagram.svg</a>; Creative Commons Attribution
 4.0 International License </em></p>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-check-out-attributes-of-the-array" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-check-out-attributes-of-the-array" class="callout-inner">
-<h3 class="callout-title">Challenge: Check Out Attributes of the
-Array<em> (continued)</em>
-</h3>
-<div class="callout-content">
 <p>Remember typical 2D pictures are made out of <strong>pixels</strong>,
 but a 3D MR image is made up of 3D cubes called
 <strong>voxels</strong>.</p>
@@ -1518,17 +1512,7 @@ Melaragno, L.E. et al. Exploring CT pixel and voxel size effect on
 anatomic modeling in mandibular reconstruction. 3D Print Med 10, 21
 (2024). <a href="https://doi.org/10.1186/s41205-024-00223-0" class="external-link uri">https://doi.org/10.1186/s41205-024-00223-0</a>; Creative
 Commons Attribution 4.0 International License </em></p>
-<p>What is the shape of the image?</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
-<div class="accordion-body">
+<p>With this in mind we examine the shape:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1539,14 +1523,19 @@ Commons Attribution 4.0 International License </em></p>
 </h3>
 <pre class="output" tabindex="0"><code>(432, 432, 30)</code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
 <p>The three numbers given here represent the number of values <em>along
 a respective dimension (x,y,z)</em>. This image was scanned in 30
-slices, each with a resolution of 432 x 432 voxels. That means there are
-<code>30 * 432 * 432 = 5,598,720</code> voxels in total!</p>
+slices, each with a resolution of 432 x 432 voxels. If each voxel were 1
+millimeter, then our image would represent something 3cm tall (so to
+speak), and this seems unlikely. However, object here is not human, and
+could be in theory be scanned on a special MRI machine of any size. We
+can not make a guess from the data we printed here alone about the size
+of a voxel. We will learn one method to do this later in the
+episode.</p>
+</div>
+</div>
+</div>
+</div>
 <p>Let’s see the type of data inside of the array.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1613,9 +1602,8 @@ analysis.</p>
 <div class="section level4">
 <h4 id="working-with-image-data">Working with Image Data<a class="anchor" aria-label="anchor" href="#working-with-image-data"></a>
 </h4>
-<p>Slicing does exactly what it seems to imply. Given a 3D volume,
-slicing involves extracting a 2D <strong>slice</strong> from our
-data.</p>
+<p>When we think and speak about about “slicing” colloqiually, we often
+think about a 2D <strong>slice</strong> from our data.</p>
 <figure><img src="../fig/slices2.png" alt="T1 weighted" class="figure mx-auto d-block"></figure><p><em>Figure with adaptation from Valdes-Hernandez, P.A., Laffitte
 Nodarse, C., Peraza, J.A. et al. Toward MR protocol-agnostic, unbiased
 brain age predicted from clinical-grade MRIs. Sci Rep 13, 19570 (2023).
@@ -1633,6 +1621,9 @@ brain.</p>
 voxel. However, instead of providing a value for each axis, the
 <code>:</code> indicates that we want to grab <em>all</em> values from
 that particular axis.</p>
+<p>In the nibabel documentation there are more details on how to use a
+<code>slicer</code> attribute of a nibabel array data. Using this
+attribute can help to make code more efficient.</p>
 <div id="challenge-slicing-mri-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1640,32 +1631,86 @@ that particular axis.</p>
 <div id="challenge-slicing-mri-data" class="callout-inner">
 <h3 class="callout-title">Challenge: Slicing MRI Data</h3>
 <div class="callout-content">
-<p>Select the 20th slice along the y-axis and store it in a variable.
-Then, select the 4th slice along the x-axis and store it in another
-variable.</p>
+<p>Write a python function using nibabel to take an image string, and
+coordinates for any slices desired on x, y and z axes; and plot the
+image slices. Then use the function to display slices of
+<code>t2_data</code> at x = 9, y = 9, and z= 9.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>y_slice <span class="op">=</span> t2_data[:, <span class="dv">19</span>, :]</span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>x_slice <span class="op">=</span> t2_data[<span class="dv">3</span>, :, :]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="co"># if in a new notebook re-import</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="im">import</span> nibabel <span class="im">as</span> nib</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a><span class="kw">def</span> slice_image_data(file_path, x, y, z):</span>
+<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a>    <span class="co"># load the image</span></span>
+<span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb28-10"><a href="#cb28-10" tabindex="-1"></a>        img <span class="op">=</span> nib.load(file_path)</span>
+<span id="cb28-11"><a href="#cb28-11" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb28-12"><a href="#cb28-12" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error loading the image: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb28-14"><a href="#cb28-14" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" tabindex="-1"></a>    <span class="co"># get the image array</span></span>
+<span id="cb28-16"><a href="#cb28-16" tabindex="-1"></a>    data <span class="op">=</span> img.get_fdata()</span>
+<span id="cb28-17"><a href="#cb28-17" tabindex="-1"></a></span>
+<span id="cb28-18"><a href="#cb28-18" tabindex="-1"></a>    <span class="co"># slice the image data</span></span>
+<span id="cb28-19"><a href="#cb28-19" tabindex="-1"></a>    <span class="co"># and extract a specific slice along each plane</span></span>
+<span id="cb28-20"><a href="#cb28-20" tabindex="-1"></a>    z_slice <span class="op">=</span> data[:, :, z]  <span class="co"># slice</span></span>
+<span id="cb28-21"><a href="#cb28-21" tabindex="-1"></a>    y_slice <span class="op">=</span> data[:, y, :]  <span class="co"># slice</span></span>
+<span id="cb28-22"><a href="#cb28-22" tabindex="-1"></a>    x_slice <span class="op">=</span> data[x, :, :]  <span class="co"># slice</span></span>
+<span id="cb28-23"><a href="#cb28-23" tabindex="-1"></a>    <span class="co"># make each slice is 2D by explicitly removing unnecessary dimensions</span></span>
+<span id="cb28-24"><a href="#cb28-24" tabindex="-1"></a>    z_slice <span class="op">=</span> z_slice.squeeze()  <span class="co"># this ensures it's a 2D array</span></span>
+<span id="cb28-25"><a href="#cb28-25" tabindex="-1"></a>    y_slice <span class="op">=</span> y_slice.squeeze()  </span>
+<span id="cb28-26"><a href="#cb28-26" tabindex="-1"></a>    x_slice <span class="op">=</span> x_slice.squeeze()  </span>
+<span id="cb28-27"><a href="#cb28-27" tabindex="-1"></a>    </span>
+<span id="cb28-28"><a href="#cb28-28" tabindex="-1"></a>    <span class="bu">print</span>(z_slice.shape)</span>
+<span id="cb28-29"><a href="#cb28-29" tabindex="-1"></a></span>
+<span id="cb28-30"><a href="#cb28-30" tabindex="-1"></a>    <span class="co"># visualize the slices</span></span>
+<span id="cb28-31"><a href="#cb28-31" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb28-32"><a href="#cb28-32" tabindex="-1"></a></span>
+<span id="cb28-33"><a href="#cb28-33" tabindex="-1"></a>    <span class="co"># plot the z slice</span></span>
+<span id="cb28-34"><a href="#cb28-34" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb28-35"><a href="#cb28-35" tabindex="-1"></a>    plt.imshow(z_slice.T, cmap<span class="op">=</span><span class="st">'gray'</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb28-36"><a href="#cb28-36" tabindex="-1"></a>    plt.title(<span class="st">'Z Slice'</span>)</span>
+<span id="cb28-37"><a href="#cb28-37" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb28-38"><a href="#cb28-38" tabindex="-1"></a></span>
+<span id="cb28-39"><a href="#cb28-39" tabindex="-1"></a>    <span class="co"># plot the y slice</span></span>
+<span id="cb28-40"><a href="#cb28-40" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb28-41"><a href="#cb28-41" tabindex="-1"></a>    plt.imshow(y_slice.T, cmap<span class="op">=</span><span class="st">'gray'</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb28-42"><a href="#cb28-42" tabindex="-1"></a>    plt.title(<span class="st">'Y Slice'</span>)</span>
+<span id="cb28-43"><a href="#cb28-43" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb28-44"><a href="#cb28-44" tabindex="-1"></a></span>
+<span id="cb28-45"><a href="#cb28-45" tabindex="-1"></a>    <span class="co"># plot the x slice</span></span>
+<span id="cb28-46"><a href="#cb28-46" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb28-47"><a href="#cb28-47" tabindex="-1"></a>    plt.imshow(x_slice.T, cmap<span class="op">=</span><span class="st">'gray'</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb28-48"><a href="#cb28-48" tabindex="-1"></a>    plt.title(<span class="st">'X Slice'</span>)</span>
+<span id="cb28-49"><a href="#cb28-49" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb28-50"><a href="#cb28-50" tabindex="-1"></a></span>
+<span id="cb28-51"><a href="#cb28-51" tabindex="-1"></a>slice_image_data(<span class="st">'data/mri//OBJECT_phantom_T2W_TSE_Cor_14_1.nii'</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>)</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
+<p>In the above exercise you may note many solutions do not return
+anything. This is not unusal in Python when we only want a graph or
+visualization. We really only want an artifact of some functions,
+however we could return the artifact with more code if needed.</p>
 <p>We’ve been slicing and dicing images but we have no idea what they
-look like. In the next section we’ll show you one way you can visualize
-it all together.</p>
+look like in a more global sense. In the next section we’ll show you one
+way you can visualize it all together.</p>
 </div>
 <div class="section level4">
 <h4 id="visualizing-the-data">Visualizing the Data<a class="anchor" aria-label="anchor" href="#visualizing-the-data"></a>
@@ -1753,12 +1798,12 @@ own words.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Axial: Slices the head as if slicing across both eyes, such that
 there is a slice between higher and lower levels Saggital: Slicing
@@ -3677,7 +3722,7 @@ dataset?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>In almost any radiological dataset, it is essential to examine the
 age and sex distribution. These metadata are crucial for both brain MRIs
@@ -3826,7 +3871,7 @@ prestigious tertiary inpatient hospital.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>All of the following may pose potential problems:</p>
 <ul>
@@ -3865,7 +3910,7 @@ the impact of harsh lines on ML performance.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4139,7 +4184,7 @@ pipeline without accessing the original images.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>One major concern is accuracy, as pipelines may mislabel or miscount
 features, potentially leading to unreliable data analysis or model
@@ -4405,7 +4450,7 @@ package.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Aging code: <code>neurocombat</code> was last modified three years
 ago. It may rely on outdated dependencies that could pose compatibility
@@ -4584,7 +4629,7 @@ annotations from) the ultrasound image data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The image has identifying metadata. You should identify not only the
 name, but the date and place as problematic. You can take three
@@ -4728,7 +4773,7 @@ arguments why and why not</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In most cases images like the above are de-identified. The image
 above is only an image, not a DICOM with potentially identifying
@@ -4778,7 +4823,7 @@ soft tissue in the image (already loaded into sag_image).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>We can approach the problem in various ways. Below is one solution
 with erosion, dilation and masking:</p>
@@ -5213,7 +5258,7 @@ choose to retain such data?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Metadata related to the machine, image type, and file type are
 generally safe. This information is particularly valuable when sorting
@@ -5302,7 +5347,7 @@ printed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
