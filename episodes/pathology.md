@@ -81,6 +81,11 @@ slide_in_props = slide_in.properties
 print(slide_in_props)
 ```
 
+```output
+<_PropertyMap {'openslide.level-count': '9', 'openslide.level[0].downsample': '1', 'openslide.level[0].height': '32914', 'openslide.level[0].tile-height': '256', 'openslide.level[0].tile-width': '256', 'openslide.level[0].width': '46000', 'openslide.level[1].downsample': '2', 'openslide.level[1].height': '16457', 'openslide.level[1].tile-height': '256', 'openslide.level[1].tile-width': '256', 'openslide.level[1].width': '23000', 'openslide.level[2].downsample': '4.0001215362177929', 'openslide.level[2].height': '8228', 'openslide.level[2].tile-height': '256', 'openslide.level[2].tile-width': '256', 'openslide.level[2].width': '11500', 'openslide.level[3].downsample': '8.0002430724355857', 'openslide.level[3].height': '4114', 'openslide.level[3].tile-height': '256', 'openslide.level[3].tile-width': '256', 'openslide.level[3].width': '5750', 'openslide.level[4].downsample': '16.000486144871171', 'openslide.level[4].height': '2057', 'openslide.level[4].tile-height': '256', 'openslide.level[4].tile-width': '256', 'openslide.level[4].width': '2875', 'openslide.level[5].downsample': '32.014322017605849', 'openslide.level[5].height': '1028', 'openslide.level[5].tile-height': '256', 'openslide.level[5].tile-width': '256', 'openslide.level[5].width': '1437', 'openslide.level[6].downsample': '64.050935911470475', 'openslide.level[6].height': '514', 'openslide.level[6].tile-height': '256', 'openslide.level[6].tile-width': '256', 'openslide.level[6].width': '718', 'openslide.level[7].downsample': '128.10187182294095', 'openslide.level[7].height': '257', 'openslide.level[7].tile-height': '256', 'openslide.level[7].tile-width': '256', 'openslide.level[7].width': '359', 'openslide.level[8].downsample': '257.06193261173183', 'openslide.level[8].height': '128', 'openslide.level[8].tile-height': '256', 'openslide.level[8].tile-width': '256', 'openslide.level[8].width': '179', 'openslide.mpp-x': '1000', 'openslide.mpp-y': '1000', 'openslide.quickhash-1': '428aa6abf42c774234a463cb90e2cbf88423afc0217e46ec2e308f31e29f1a9f', 'openslide.vendor': 'generic-tiff', 'tiff.ResolutionUnit': 'centimeter', 'tiff.XResolution': '10', 'tiff.YResolution': '10'}>
+
+```
+
 When we printed the properties we can see we are dealing with a tiled slide because we have properties like levels and tile height and width. These may not be the only properties we care about. We most likely may care about mapping this image back to real world sizes. We have a property that tells us the microns per pixel. Let's look:
 
 ```python
@@ -175,5 +180,9 @@ print("Dimensions of various levels in this image are:", dims)
 factors = slide_in.level_downsamples
 print("Each level is downsampled by an amount of: ", factors)
 ```
-
+```output
+Number of levels in this image are: 9
+Dimensions of various levels in this image are: ((46000, 32914), (23000, 16457), (11500, 8228), (5750, 4114), (2875, 2057), (1437, 1028), (718, 514), (359, 257), (179, 128))
+Each level is downsampled by an amount of:  (1.0, 2.0, 4.000121536217793, 8.000243072435586, 16.00048614487117, 32.01432201760585, 64.05093591147048, 128.10187182294095, 257.06193261173183)
+```
 Pyramidal file structure and tiling are quite challenging to understand, and different file formats can actually implement the concepts a bit differently. Pyramids are actually a more general concept in image processing. The key concept about them to understand are that a pyramidal image simply represents the image at multiple scales, and that could be implemented in many different ways. Usually we don't create such pyramids by hand, but rather, you guessed it, algorithmically with code. 
