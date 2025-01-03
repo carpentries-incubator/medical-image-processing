@@ -73,7 +73,7 @@ import matplotlib.pyplot as plt
 After importing the needed libraries we can now load a slide, and print out it's properties.
 
 ```python
-file_path = 'C:/Projects/medical-image-processing-materials/tubhiswt-3D/CMU-1.tiff'
+file_path = 'data/pathology/CMU-1.tiff'
 
 slide_in = open_slide(file_path)
 
