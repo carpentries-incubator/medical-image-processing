@@ -23,9 +23,9 @@ exercises: 30
 
 ## Introduction
 
-Pathologists deal with multiple types of images. Some pathologists may use photography when recording gross pathology data. The processing of digital photography is a straightforward application of general image processing. However the workhorse type image of pathology is the histopathological image, and this is very different from a photograph. 
+Pathologists deal with multiple types of images. Some pathologists may use photography when recording gross (or macroscopic) pathology data. The processing of digital photography is a straightforward application of general image processing. However the workhorse type image of pathology is the histopathological image, and this is very different from a photograph. 
 
-In the below picture you can see an image with gross and histopathology of signet ring cell carcinoma metastasis to the ovary. The histopathology is a stained microscopy image. The gross pathology image is a photograph.
+In the below picture you can see an image with gross and histopathology of signet ring cell carcinoma metastasis to the ovary. The histopathology images are stained microscopy image. The gross pathology images are photographs.
 
 <img src="fig/path_metastasis.jpg" alt="Gross and histopathology" width="70%;"/>
 
@@ -190,3 +190,6 @@ Dimensions of various levels in this image are: ((46000, 32914), (23000, 16457),
 Each level is downsampled by an amount of:  (1.0, 2.0, 4.000121536217793, 8.000243072435586, 16.00048614487117, 32.01432201760585, 64.05093591147048, 128.10187182294095, 257.06193261173183)
 ```
 Pyramidal file structure and tiling are quite challenging to understand, and different file formats can actually implement the concepts a bit differently. Pyramids are actually a more general concept in image processing. The key concept about them to understand are that a pyramidal image simply represents the image at multiple scales, and that could be implemented in many different ways. Usually we don't create such pyramids by hand, but rather, you guessed it, algorithmically with code. 
+<img src="fig/pyramid1.png" alt=" File structures" width="45%;"/><img src="fig/pyramid2.png" alt=" Pyramidal histopathology" width="45%;"/>
+
+*Images with modifications from article "KMIT-Pathology: Digital Pathology AI Platform for Cancer Biomarkers Identification on Whole Slide Images" with CC BY 4.0 license. Subramanian, Rajasekaran & Rajasekaran, Devikarubi & Tapadia, Rohit & Singh, Rochan. (2022). KMIT-Pathology: Digital Pathology AI Platform for Cancer Biomarkers Identification on Whole Slide Images. International Journal of Advanced Computer Science and Applications. 13. 10.14569/IJACSA.2022.0131170. *
