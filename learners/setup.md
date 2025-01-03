@@ -72,11 +72,42 @@ mamba env create -f https://raw.githubusercontent.com/esciencecenter-digital-ski
 After the installation is complete, activate the environment with conda or mamba:
 
 ```bash
-conda activate edical_image_proc
+conda activate medical_image_proc
 ```
 or
 ```bash
 mamba activate medical_image_proc
+```
+
+## Additional environments
+
+If you wish to run the code in the pathology section, you need to create a seperate environment for it.
+We have kept this environment seperate because our way to set it up involves using both conda and pip in the same environment. You can read the environment file and install by hand from all pip sources if you prefer an unmixed environment. Otherwise, follow the steps below:
+
+
+1. Open your terminal:
+   - On Windows: Open "Miniforge Prompt" or "Command Prompt" or "Git Bash".
+   - On macOS/Linux: Open your regular terminal.
+2. Navigate to your lesson workspace directory.
+3. Deactivate any current environment so you are in the base conda environment.
+4. Run one of the following commands (based on your preference for mamba or conda):
+
+
+```bash
+conda env create -f https://raw.githubusercontent.com/esciencecenter-digital-skills/medical-image-processing/main/learners/environment_pathology.yml
+``` 
+or 
+```bash
+mamba env create -f https://raw.githubusercontent.com/esciencecenter-digital-skills/medical-image-processing/main/learners/environment_pathology.yml
+```
+After the installation is complete, you can activate the environment with conda or mamba as follows:
+
+```bash
+conda activate pathy
+```
+or
+```bash
+mamba activate pathy
 ```
 
 ## Downloading image files from Zenodo

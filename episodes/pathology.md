@@ -61,7 +61,7 @@ There is actually very little in the way of open pure python libraries that deal
 A promising new contender is [TIA toolbox](https://tia-toolbox.readthedocs.io/en/latest/) ; however this is a relatively new library. 
 There are better known (in the small community of researchers in digital pathology) more popular libraries that have binders or other tricks that allow you to process pathology images in Python. 
 Probably the most popular is openslide, but other contenders include [Bio-Formats](http://www.openmicroscopy.org/bio-formats/) (which is both a libraru and a tool) and QuPath which has the distinct advantage of being able to work with OME-TIFF directly. 
-One disadvantage of QuPath is that usually requires some Java knowledge. Bio-Formats has Python bindings but is also mainly a Java tool which can also be used as a C++ library, therefore we will use openslide as the vehicle to explore histopathology images in this lesson.
+One disadvantage of QuPath is that usually requires some Java knowledge. Bio-Formats has Python bindings but is also mainly a Java tool which can also be used as a Java or C++ library. To keep things simple we will use openslide as the vehicle to explore histopathology images in this lesson.
 
 #### Reading TIFF histopathology Images
 
@@ -189,7 +189,9 @@ Number of levels in this image are: 9
 Dimensions of various levels in this image are: ((46000, 32914), (23000, 16457), (11500, 8228), (5750, 4114), (2875, 2057), (1437, 1028), (718, 514), (359, 257), (179, 128))
 Each level is downsampled by an amount of:  (1.0, 2.0, 4.000121536217793, 8.000243072435586, 16.00048614487117, 32.01432201760585, 64.05093591147048, 128.10187182294095, 257.06193261173183)
 ```
-Pyramidal file structure and tiling are quite challenging to understand, and different file formats can actually implement the concepts a bit differently. Pyramids are actually a more general concept in image processing. The key concept about them to understand are that a pyramidal image simply represents the image at multiple scales, and that could be implemented in many different ways. Usually we don't create such pyramids by hand, but rather, you guessed it, algorithmically with code. 
+Pyramidal file structure and tiling are quite challenging to understand, and different file formats can actually implement the concepts a bit differently. Pyramids are actually a more general concept in image processing. The key concept about them to understand are that a pyramidal image simply represents the image at multiple scales, and that could be implemented in many different ways. Usually we don't create such pyramids by hand, but rather, you guessed it, algorithmically with code. The pictures below illustrate the concepts involved in tiled pyramical images. 
 <img src="fig/pyramid1.png" alt=" File structures" width="45%;"/><img src="fig/pyramid2.png" alt=" Pyramidal histopathology" width="45%;"/>
 
 *Images with modifications from article "KMIT-Pathology: Digital Pathology AI Platform for Cancer Biomarkers Identification on Whole Slide Images" with CC BY 4.0 license. Subramanian, Rajasekaran & Rajasekaran, Devikarubi & Tapadia, Rohit & Singh, Rochan. (2022). KMIT-Pathology: Digital Pathology AI Platform for Cancer Biomarkers Identification on Whole Slide Images. International Journal of Advanced Computer Science and Applications. 13. 10.14569/IJACSA.2022.0131170. *
+
+One final note to consider about this pyramical tiled structure of images is that it may well be the wave of the future for more types of medical images as medical images get to higher and higher resolutions, and more and more data is stored in clouds.  
