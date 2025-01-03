@@ -61,7 +61,7 @@ There is actually very little in the way of open pure python libraries that deal
 A promising new contender is [TIA toolbox](https://tia-toolbox.readthedocs.io/en/latest/) ; however this is a relatively new library. 
 There are better known (in the small community of researchers in digital pathology) more popular libraries that have binders or other tricks that allow you to process pathology images in Python. 
 Probably the most popular is openslide, but other contenders include [Bio-Formats](http://www.openmicroscopy.org/bio-formats/) (which is both a libraru and a tool) and QuPath which has the distinct advantage of being able to work with OME-TIFF directly. 
-One disadvantage of QuPath is that usually requires some Java knowledge. Bio-Formats has Python bindings but is also mainly a Java tool, therefore we will use openslide as the vehicle to explore histopathology images in this lesson.
+One disadvantage of QuPath is that usually requires some Java knowledge. Bio-Formats has Python bindings but is also mainly a Java tool which can also be used as a C++ library, therefore we will use openslide as the vehicle to explore histopathology images in this lesson.
 
 #### Reading TIFF histopathology Images
 
