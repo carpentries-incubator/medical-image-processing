@@ -25,13 +25,13 @@ exercises: 30
 
 Pathologists deal with multiple types of images. Some pathologists may use photography when recording gross (or macroscopic) pathology data. The processing of digital photography is a straightforward application of general image processing. However the workhorse type image of pathology is the histopathological image, and this is very different from a photograph. 
 
-In the below picture you can see an image with gross and histopathology of signet ring cell carcinoma metastasis to the ovary. The histopathology images are stained microscopy image. The gross pathology images are photographs.
+In the below picture you can see an image with gross and histopathology of signet ring cell carcinoma metastasis to the ovary. The histopathology images (bottom row images) are stained microscopy images. The gross pathology images (top row images) are photographs.
 
 <img src="fig/path_metastasis.jpg" alt="Gross and histopathology" width="70%;"/>
 
 *Nakamura, Yoshiaki; Hiramatsu, Ayako; Koyama, Takafumi; Oyama, Yu; Tanaka, Ayuko; Honma, Koichi, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons*
 
-In this lesson we will cover how to work with histopathology images as they differ from simpler multi-channel color image like a modern digital camera often produces. 
+Signet ring cell carcinoma is a type of cancer that currently can only be definitively differentiated from other types of gastric cancers based on the microscopic characteristics (the histology or histopathology) of the tumor. In this lesson we will cover how to work with histopathology images as they differ from simpler multi-channel color image like a modern digital camera often produces. 
 
 ## File formats
 
@@ -47,28 +47,32 @@ In terms of histopathological images, you may find them in several file formats.
 
 
 
- The table above is far from complete because any vendors have their own file format, however the community is consolidating towards shared file formats that are not vendor specific. The table is organized in a manner of ascending complexity. A simple general TIFF file is very close to a simple raster image. Such a file for a high resolution image would be quite large and potentially hard to manage based on size alone. Tiling in a way to more efficiently manage huge images. 
+ The table above is far from complete because any vendors have their own file format, however the community is consolidating towards shared file formats that are not vendor specific. The table is organized in a manner of ascending complexity. A simple general TIFF file is very close to a simple raster image. Such a file for a high resolution image would be quite large and potentially hard to manage based on size alone. Tiling is a way to more efficiently manage huge images. 
 
  Tiling  approaches will be very familiar to anyone who comes from the world of GIS, mapping or digital geography. Maps provide a really obvious way to think about the advantages of pyramidal tiling. Imagine if every time you wanted to get a map with directions, and check out a picture of your destination, you needed to load a detailed map picture of the entire world, literally. It would be incredibly inefficient and taxing on your computer or smartphone. It's much more efficient to just load what you need. There are many ways this can be done but practically some variation of pyramidal tiling is usually used. The same is true with tiled pathology images.
+
+ To be clear tiling is the process of cutting a big image up so you can load only relevant parts of it at a time. Tiling is useful even without pyramids - it can be used to make efficient running parallel inference on huge images (i.e. medical imaging at high resolution) which will mostly run at the highest resolution.  
+ 
+ Pyramidical images are those where multiple images are made from a source image at predefined zoom levels so you can switch beteeen using the different resolutions as needed. Remember the last time you downloaded an image for a presentation and you there was a choice of resolutions because not everyone needs an image of Gigabytes in size  for high resolution quality? You can think of this as a sort of pyramidal-like scheme, except that the images were not all in the same image. In the world of modern digital pathology we often use both tiling and pyramidal structure simultaneosly.
  
  
- Tiled images are made in a pyramidal structure, and at each level of the pyramid after zero there is a lower resolution downscaled version of the image. Each level of the pyramid has tiles, smaller parts of the image that are quilted into the whole image. Creating images in this way allows much more efficient access and management of images because you can load and display images at only one level. 
+ Therefore practically speaking we often have tiled images made in a pyramidal structure, and at each level of the pyramid after zero there is a lower resolution downscaled version of the image. Each level of the pyramid has tiles, smaller parts of the image that are quilted into the whole image. Creating images in this way allows much more efficient access and management of images because you can load and display images at only one level. 
  An OME-TIFF file can be one or more tiled TIFFs and some XML in the header. An SVS file is essentially a tiled TIFF image that has a few additional things like overview image. Various types of pathology files can be somehow packed into a DICOM which has it's own file specification. 
 
 ## Libraries
 
-There is actually very little in the way of open pure python libraries that deal with pathology images. 
+There is actually very little in the way of open pure Python libraries that deal with pathology images. 
 A promising new contender is [TIA toolbox](https://tia-toolbox.readthedocs.io/en/latest/) ; however this is a relatively new library. 
 There are better known (in the small community of researchers in digital pathology) more popular libraries that have binders or other tricks that allow you to process pathology images in Python. 
-Probably the most popular is openslide, but other contenders include [Bio-Formats](http://www.openmicroscopy.org/bio-formats/) (which is both a libraru and a tool) and QuPath which has the distinct advantage of being able to work with OME-TIFF directly. 
+Probably the most popular is [Openslide](https://openslide.org/), but other contenders include [Bio-Formats](http://www.openmicroscopy.org/bio-formats/) (which is both a library and a tool) and [QuPath](https://qupath.github.io/) which has the distinct advantage of being able to work with OME-TIFF directly. 
 
 
-QuPath is mainly a UI tool, that relies on libraries (Bioformats/OpenSlide) as "backends" to load the slide. It can be used directly as a tool for viewing, unlike BioFormats/OpenSlide, which are code only.
-One potential disadvantage of QuPath if you code with it is that usually requires some Java knowledge. Bio-Formats has Python bindings but is also mainly a Java tool which can also be used as a Java or C++ library. To keep things simple we will use openslide as the vehicle to explore histopathology images in this lesson.
+QuPath is mainly a GUI tool, that relies on libraries (Bioformats/OpenSlide) as "backends" to load the slide. It can be used directly as a tool for viewing, unlike BioFormats/OpenSlide, which are code only.
+One potential disadvantage of QuPath if you code with it, as opposed to just using it's GUI, it usually requires some Java knowledge. Bio-Formats has Python bindings but is also mainly a Java tool which can also be used as a Java or C++ library. To keep things simple we will use openslide as the vehicle to explore histopathology images in this lesson.
 
 #### Reading TIFF histopathology Images
 
-[Openslide](https://openslide.org/) is actually written in C, but you can also use Java or Python to work with is due to bindings.To run the code you will need to work in the `pathy` environment created with the environment_pathology.yml file.
+Openslide is actually written in C, but you can also use Java or Python to work with is due to bindings.To run the code you will need to work in the `pathy` environment created with the `environment_pathology.yml` file.
 
 ```python
 import openslide
@@ -93,7 +97,7 @@ print(slide_in_props)
 
 ```
 
-When we printed the properties we can see we are dealing with a tiled slide because we have properties like levels and tile height and width. These may not be the only properties we care about. We most likely may care about mapping this image back to real world sizes. We have a property that tells us the microns per pixel. Let's look:
+When we printed the properties we can see we are dealing with a tiled slide because we have properties like levels and tile height and width. We can observe here we have nine levels in this specific image file, and see tile heights and widths are often 256 n this specific file but actual heights and widths very per level. These properties may not be the only properties we care about. We most likely may care about mapping this image back to real world sizes. We have a property that tells us the microns per pixel. Let's look:
 
 ```python
 print("Pixel size of X in um is:", slide_in_props['openslide.mpp-x'])
@@ -156,7 +160,7 @@ slide_in_thumb_600.show() #
 ```
 
 With the above code an image will be opened on most operating systems, but if one does not open for you, do not depair.
-We could also store off our thumbnail (or any part of the image for that matter)as a numpy array, and then graph it.
+We could also store off our thumbnail (or any part of the image for that matter) as a numpy array, and then graph it.
 
 ```python
 # convert thumbnail to numpy array, and plot it
