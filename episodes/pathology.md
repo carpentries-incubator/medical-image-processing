@@ -57,7 +57,7 @@ In terms of histopathological images, you may find them in several file formats.
  
  
  Therefore practically speaking we often have tiled images made in a pyramidal structure, and at each level of the pyramid after zero there is a lower resolution downscaled version of the image. Each level of the pyramid has tiles, smaller parts of the image that are quilted into the whole image. Creating images in this way allows much more efficient access and management of images because you can load and display images at only one level. 
- An OME-TIFF file can be one or more tiled TIFFs and some XML in the header. An SVS file is essentially a tiled TIFF image that has a few additional things like overview image. Various types of pathology files can be somehow packed into a DICOM which has it's own file specification. 
+ An OME-TIFF file can be one or more tiled TIFFs and some XML in the header. An SVS file is essentially a tiled TIFF image that has a few additional things like overview image. Various types of pathology files can be somehow packed into a DICOM which has it's own file specification. DICOMs could be conceptualized as a containers which can contain many sorts of imaging data, e.g. JPEGS of X-rays, including OME-TIFFs or other pathology file types. 
 
 ## Libraries
 
