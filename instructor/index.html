@@ -255,7 +255,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="anonymization.html">6. Anonymizing Medical Images</a>
+        <a href="pathology.html">6. Working with Pathology Images</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -264,7 +264,16 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="generative_ai.html">7. Generative AI in Medical Imaging</a>
+        <a href="anonymization.html">7. Anonymizing Medical Images</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="generative_ai.html">8. Generative AI in Medical Imaging</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -387,7 +396,18 @@ radiomics or volumetrics?
 <span class="visually-hidden">Duration: </span>07h 15m
 </td>
 <td>
- 6. <a href="anonymization.html">Anonymizing Medical Images</a>
+ 6. <a href="pathology.html">Working with Pathology Images</a>
+</td>
+<td>
+What are some open libraries can be used with pathology?<br>How are
+pathology slides different from a photo?<br>What is the structure of a
+pathology slide?
+</td>
+</tr><tr><td>
+<span class="visually-hidden">Duration: </span>08h 45m
+</td>
+<td>
+ 7. <a href="anonymization.html">Anonymizing Medical Images</a>
 </td>
 <td>
 What types of data make patient’s imaging data identifiable?<br>How can
@@ -395,17 +415,17 @@ I ensure the safe sharing of medical image data?<br>How can I remove
 specific metadata from DICOM files?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>08h 25m
+<span class="visually-hidden">Duration: </span>09h 55m
 </td>
 <td>
- 7. <a href="generative_ai.html">Generative AI in Medical Imaging</a>
+ 8. <a href="generative_ai.html">Generative AI in Medical Imaging</a>
 </td>
 <td>
 What is generative AI?<br>How can generative AI be safely used in my
 work?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>09h 05m
+<span class="visually-hidden">Duration: </span>10h 35m
 </td>
 <td>
 Finish
@@ -452,7 +472,7 @@ are the installation instructions for different operating systems:</p>
   Windows
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>Download the Miniforge3 installer for Windows <a href="https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3" class="external-link">from
 the official GitHub repository</a>.</li>
@@ -469,7 +489,7 @@ the official GitHub repository</a>.</li>
   macOS and Linux
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>Open a terminal window.</li>
 <li>Download the installer using <code>curl</code> or <code>wget</code>
@@ -532,7 +552,7 @@ conda or mamba:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">conda</span> activate edical_image_proc</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">conda</span> activate medical_image_proc</span></code></pre>
 </div>
 <p>or</p>
 <div class="codewrapper sourceCode" id="cb6">
@@ -540,6 +560,47 @@ conda or mamba:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">mamba</span> activate medical_image_proc</span></code></pre>
 </div>
+</div>
+</section><section><h2 class="section-heading" id="additional-environments">Additional environments<a class="anchor" aria-label="anchor" href="#additional-environments"></a></h2>
+<hr class="half-width"><p>If you wish to run the code in the pathology section, you need to
+create a seperate environment for it. We have kept this environment
+seperate because our way to set it up involves using both conda and pip
+in the same environment. You can read the environment file and install
+by hand from all pip sources if you prefer an unmixed environment.
+Otherwise, follow the steps below:</p>
+<ol style="list-style-type: decimal"><li>Open your terminal:
+<ul><li>On Windows: Open “Miniforge Prompt” or “Command Prompt” or “Git
+Bash”.</li>
+<li>On macOS/Linux: Open your regular terminal.</li>
+</ul></li>
+<li>Navigate to your lesson workspace directory.</li>
+<li>Deactivate any current environment so you are in the base conda
+environment.</li>
+<li>Run one of the following commands (based on your preference for
+mamba or conda):</li>
+</ol><div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> https://raw.githubusercontent.com/esciencecenter-digital-skills/medical-image-processing/main/learners/environment_pathology.yml</span></code></pre>
+</div>
+<p>or</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">mamba</span> env create <span class="at">-f</span> https://raw.githubusercontent.com/esciencecenter-digital-skills/medical-image-processing/main/learners/environment_pathology.yml</span></code></pre>
+</div>
+<p>After the installation is complete, you can activate the environment
+with conda or mamba as follows:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">conda</span> activate pathy</span></code></pre>
+</div>
+<p>or</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">mamba</span> activate pathy</span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="downloading-image-files-from-zenodo">Downloading image files from Zenodo<a class="anchor" aria-label="anchor" href="#downloading-image-files-from-zenodo"></a></h2>
 <hr class="half-width"><p>Now that you have the environment set up, let’s download the
@@ -564,10 +625,10 @@ environment.</p>
 <code>medical_image_proc</code> environment is activated.</li>
 <li>Use the following command in your terminal (Miniforge Prompt if you
 are a Windows user):</li>
-</ol><div class="codewrapper sourceCode" id="cb7">
+</ol><div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">zenodo_get</span> 13311246</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">zenodo_get</span> 13311246</span></code></pre>
 </div>
 <ol start="3" style="list-style-type: decimal"><li>Extract the contents of <code>data.zip</code>.</li>
 </ol><p>Remember to keep the <code>medical_image_proc</code> environment
@@ -630,9 +691,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://esciencecenter-digital-skills.github.io/medical-image-processing/instructor/index.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/medical-image-processing/instructor/index.html",
-  "dateCreated": "2024-12-29",
-  "dateModified": "2025-02-04",
-  "datePublished": "2025-02-04"
+  "dateCreated": "2025-02-05",
+  "dateModified": "2025-02-05",
+  "datePublished": "2025-02-05"
 }
 
   </script><script>
