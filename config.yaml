@@ -63,6 +63,7 @@ episodes:
 - medical_imaging.md
 - mri.md
 - simpleitk.md
+- cts.md
 - images_ml.md
 - pathology.md
 - anonymization.md
