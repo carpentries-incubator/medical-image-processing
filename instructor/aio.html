@@ -702,7 +702,7 @@ challenges above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Possible solutions include:</p>
 <ul>
@@ -827,7 +827,7 @@ artifacts?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>In an absolute total sense, they could have artifacts. Both CT and
 MRI are reconstructed from original data, and the reconstruction will
@@ -4767,7 +4767,7 @@ You can always check by printing out the type.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4880,7 +4880,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-anonymization"><p>Content from <a href="anonymization.html">Anonymizing Medical Images</a></p>
 <hr>
-<p>Last updated on 2024-11-03 |
+<p>Last updated on 2025-03-18 |
 
         <a href="https://github.com/esciencecenter-digital-skills/medical-image-processing/edit/main/episodes/anonymization.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 70 minutes</p>
@@ -4898,6 +4898,7 @@ any links that you are not going to use.
 <li>What types of data make patient’s imaging data identifiable?</li>
 <li>How can I ensure the safe sharing of medical image data?</li>
 <li>How can I remove specific metadata from DICOM files?</li>
+<li>How can I deal with identifying data within images themselves?</li>
 </ul>
 </div>
 </div>
@@ -4953,9 +4954,9 @@ collaborators, there is often no need to share the full DICOM files.</p>
 <h3 id="text-on-images">Text on Images<a class="anchor" aria-label="anchor" href="#text-on-images"></a>
 </h3>
 <p>Occasionally, technicians will “burn” information directly onto
-images as part of a burned-in annotation. This means they change the
-image itself with text that becomes part of the image pixels. This may
-include details such as diagnoses, demographics, or the patient’s name.
+images. This means they change the image itself with text that becomes
+part of the image pixels. This “burned-in” annotation may include
+details such as diagnoses, demographics, or the patient’s name.
 Fortunately, this text is usually typed rather than handwritten, making
 it recognizable by optical character recognition (OCR) functions. Often,
 this text is placed away from the center of the image, allowing for
@@ -4991,7 +4992,7 @@ follows:</p>
 </div>
 <figure><img src="../fig/identifiable_us.jpg" alt="Identifiable ultrasound" class="figure mx-auto d-block"><div class="figcaption">Image from flikr website published with a
 permissive lisence.</div>
-</figure><p>Write code for two approaches that de-identify (remove the
+</figure><p>Write code for more than one approach to de-identify (remove the
 annotations from) the ultrasound image data.</p>
 </div>
 </div>
@@ -5126,7 +5127,8 @@ can be taken on a 3D image.</p>
 </div>
 <figure><img src="../fig/headcutsscroll.png" alt="Non-Identifiable head" class="figure mx-auto d-block"><div class="figcaption">Images of SITK head.</div>
 </figure><p>Here we can see an analagous technique to one we used with the 2D
-ultrasound. Identifying data has been cropped out.</p>
+ultrasound. Identifying data (the nose and part of the ears) has been
+cropped out.</p>
 <div id="challenge-are-we-truly-deidentifiedoptional" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -5232,7 +5234,7 @@ mask.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a></span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">def</span> keep_largest_component(mask_image):</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    <span class="co"># Ensure mask_image is binary (0 and 1 values)</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    <span class="co"># Ensure mask_image is will work and use as little memory as possible </span></span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    mask_image <span class="op">=</span> sitk.Cast(mask_image, sitk.sitkUInt8)</span>
 <span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>    </span>
 <span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>    <span class="co"># Label connected components in the mask image</span></span>
@@ -5378,7 +5380,7 @@ includes built-in defacing capabilities, to specialized functions within
 coding libraries. Some of these tools strip off all of the skull and
 soft tissue which may be useful for analysis even if we don’t care about
 deidentification e.g. if we only want to look at brain tissue.</p>
-<p>However, a key issue under current investigation is that some
+<p>Unfortunately a key issue under current investigation is that some
 defacing algorithms may inadvertently alter more than just the facial
 features. Emerging research suggests that these algorithms might also
 affect the morphometry of the brain image. This could lead to the
@@ -5769,7 +5771,7 @@ associated with metadata</li>
 lead to patient identification</li>
 <li>You may need to preprocess images themselves so patients are
 de-identified</li>
-<li>Tools exist to deface images to further protect patient
+<li>Tools exist to deface head images to further protect patient
 identity</li>
 </ul>
 </div>
@@ -5913,7 +5915,7 @@ on your machine?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One significant risk of running any model locally is the potential
 for malicious code. Since you need to download the model to your
@@ -6074,7 +6076,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://esciencecenter-digital-skills.github.io/medical-image-processing/instructor/aio.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/medical-image-processing/instructor/aio.html",
-  "dateCreated": "2025-02-05",
+  "dateCreated": "2025-03-18",
   "dateModified": "2025-03-18",
   "datePublished": "2025-03-18"
 }
