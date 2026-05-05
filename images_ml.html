@@ -417,7 +417,7 @@ dataset?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>In almost any radiological dataset, it is essential to examine the
 age and sex distribution. These metadata are crucial for both brain MRIs
@@ -564,7 +564,7 @@ prestigious tertiary inpatient hospital.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>All of the following may pose potential problems:</p>
 <ul><li>We may have different quality images from different machines for our
@@ -603,7 +603,7 @@ the impact of harsh lines on ML performance.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -878,7 +878,7 @@ pipeline without accessing the original images.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>One major concern is accuracy, as pipelines may mislabel or miscount
 features, potentially leading to unreliable data analysis or model
@@ -919,53 +919,53 @@ future reproducibility, adherence to standards such as those set by the
 International Bio-imaging Standards Initiative (<a href="https://theibsi.github.io/" class="external-link">IBSI</a>) is crucial.</p>
 <p>Below is a list of open-source* libraries that facilitate this type
 of analysis:</p>
-<table class="table"><colgroup><col width="10%"><col width="14%"><col width="30%"><col width="22%"><col width="22%"></colgroup><thead><tr class="header"><th></th>
+<table class="table"><colgroup><col width="10%"><col width="14%"><col width="30%"><col width="22%"><col width="22%"></colgroup><thead><tr><th></th>
 <th><code>mirp</code></th>
 <th><code>pyradiomics</code></th>
 <th><code>LIFEx</code></th>
 <th><code>radiomics</code></th>
-</tr></thead><tbody><tr class="odd"><td>License</td>
+</tr></thead><tbody><tr><td>License</td>
 <td>EUPL-1.2</td>
 <td>BSD-3</td>
 <td>custom</td>
 <td>GPL-3.0</td>
-</tr><tr class="even"><td>Last updated</td>
+</tr><tr><td>Last updated</td>
 <td>5/2024</td>
 <td>1/2024</td>
 <td>6/2023</td>
 <td>11/2019</td>
-</tr><tr class="odd"><td>Programming language</td>
+</tr><tr><td>Programming language</td>
 <td>Python</td>
 <td>Python</td>
 <td>Java</td>
 <td>MATLAB</td>
-</tr><tr class="even"><td>IBSI-1 compliant</td>
+</tr><tr><td>IBSI-1 compliant</td>
 <td>yes</td>
 <td>partial</td>
 <td>yes</td>
 <td>no claim</td>
-</tr><tr class="odd"><td>IBSI-2 compliant</td>
+</tr><tr><td>IBSI-2 compliant</td>
 <td>yes</td>
 <td>no claim</td>
 <td>yes</td>
 <td>no claim</td>
-</tr><tr class="even"><td>Interface</td>
+</tr><tr><td>Interface</td>
 <td>high-level API</td>
 <td>high-level API, Docker</td>
 <td>GUI, low-level API</td>
 <td>low-level API</td>
-</tr><tr class="odd"><td>Website</td>
+</tr><tr><td>Website</td>
 <td><a href="https://github.com/oncoray/mirp" class="external-link">GitHub</a></td>
 <td><a href="https://github.com/AIM-Harvard/pyradiomics" class="external-link">GitHub</a></td>
 <td><a href="https://www.lifexsoft.org/" class="external-link">website</a></td>
 <td><a href="https://github.com/mvallieres/radiomics" class="external-link">GitHub</a></td>
-</tr><tr class="even"><td>Early publication</td>
+</tr><tr><td>Early publication</td>
 <td><a href="https://joss.theoj.org/papers/10.21105/joss.06413" class="external-link">JOSS
 publication</a></td>
 <td><a href="https://doi.org/10.1158/0008-5472.CAN-17-0339" class="external-link">doi:10.1158/0008-5472.CAN-17-0339</a></td>
 <td><a href="https://doi.org/10.1038/s41598-022-16609-1" class="external-link">doi:10.1158/0008-5472.CAN-18-0125</a></td>
 <td><a href="https://doi.org/10.1088/0031-9155/60/14/5471" class="external-link">doi:10.1088/0031-9155/60/14/5471</a></td>
-</tr><tr class="odd"><td>Notes</td>
+</tr><tr><td>Notes</td>
 <td>relative newcomer</td>
 <td>very standard and supported</td>
 <td>user-friendly</td>
@@ -1011,45 +1011,45 @@ both groups, and justify your reasoning.</li>
 <li>Explore the use of a harmonization package to standardize data
 across different datasets.</li>
 </ol><p>Below are three examples from the field of neuroimaging:</p>
-<table class="table"><colgroup><col width="18%"><col width="25%"><col width="22%"><col width="33%"></colgroup><thead><tr class="header"><th></th>
+<table class="table"><colgroup><col width="18%"><col width="25%"><col width="22%"><col width="33%"></colgroup><thead><tr><th></th>
 <th><code>neurocombat</code></th>
 <th><code>haca3</code></th>
 <th><code>autocombat</code></th>
-</tr></thead><tbody><tr class="odd"><td>License</td>
+</tr></thead><tbody><tr><td>License</td>
 <td>MIT for Python/ Artistic for R</td>
 <td>Missing?</td>
 <td>Apache 2.0</td>
-</tr><tr class="even"><td>Last updated</td>
+</tr><tr><td>Last updated</td>
 <td>2021</td>
 <td>2024</td>
 <td>2022</td>
-</tr><tr class="odd"><td>Programming language</td>
+</tr><tr><td>Programming language</td>
 <td>Python or R</td>
 <td>Python</td>
 <td>Python</td>
-</tr><tr class="even"><td>Organ/area and modality</td>
+</tr><tr><td>Organ/area and modality</td>
 <td>brain MRI</td>
 <td>brain MRI</td>
 <td>brain MRI</td>
-</tr><tr class="odd"><td>Data type</td>
+</tr><tr><td>Data type</td>
 <td>derived values</td>
 <td>images</td>
 <td>derived values</td>
-</tr><tr class="even"><td>Notes</td>
+</tr><tr><td>Notes</td>
 <td>no standard release yet</td>
 <td>versioned but not released</td>
 <td>not release, not versioned</td>
-</tr><tr class="odd"><td>Original website</td>
+</tr><tr><td>Original website</td>
 <td><a href="https://github.com/Jfortin1/ComBatHarmonization" class="external-link">GitHub</a></td>
 <td><a href="https://github.com/lianruizuo/haca3" class="external-link">GitHub</a></td>
 <td><a href="https://github.com/Alxaline/ComScan" class="external-link">GitHub</a></td>
-</tr><tr class="even"><td>Early publication</td>
+</tr><tr><td>Early publication</td>
 <td><a href="https://doi.org/10.1016/j.neuroimage.2017.08.047" class="external-link">doi:
 10.1016/j.neuroimage.2017.08.047</a></td>
 <td><a href="https://doi.org/10.1016/j.compmedimag.2023.102285" class="external-link">doi:10.1016/j.compmedimag.2023.102285</a></td>
 <td><a href="https://doi.org/10.1038/s41598-022-16609-1" class="external-link">doi:
 10.1038/s41598-022-16609-1</a></td>
-</tr><tr class="odd"><td>Versioned website</td>
+</tr><tr><td>Versioned website</td>
 <td><a href="https://github.com/brainspinner/cvasl/tree/main/cvasl/vendor/neurocombat" class="external-link">versioned
 on cvasl</a></td>
 <td><a href="https://github.com/lianruizuo/haca3" class="external-link">versioned on
@@ -1079,7 +1079,7 @@ package.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Aging code: <code>neurocombat</code> was last modified three years
 ago. It may rely on outdated dependencies that could pose compatibility
@@ -1194,7 +1194,7 @@ any links that you are not going to use.
   "identifier": "https://esciencecenter-digital-skills.github.io/medical-image-processing/images_ml.html",
   "dateCreated": "2025-03-18",
   "dateModified": "2024-09-14",
-  "datePublished": "2026-04-28"
+  "datePublished": "2026-05-05"
 }
 
   </script><script>
