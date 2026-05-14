@@ -24,7 +24,9 @@ Generative artificial intelligence (AI) includes technologies that create or gen
 
 The applications of generative AI span widely across fields like medical imaging, where they hold potential for image interpretation and numerous other tasks. Of particular interest to participants in this course are the capabilities of LLMs to generate code and produce large volumes of synthetic data. Ongoing research continues to explore these capabilities.
 
-However, the safety implications of these technologies remain a subject of debate. Depending on the software or model used, data entered into the system may become the property of the software's creators. It is crucial to exercise caution when inputting sensitive information, such as patient data, into these systems. Understanding where and how data is stored (i.e., whether on your servers or in the cloud) is essential to safeguard privacy and confidentiality.
+Since this lesson was originally created there has been a rise of generative models that are specifically used to create code. The possibilities and ethical concerns for this type of generative AI could comprise an antire workshop in and of itself. There is indeed a course in the carpentries incubator already: https://carpentries-incubator.github.io/software-development-with-genai/.
+
+The safety implications of these technologies, whether used for image or code creation, remain a subject of debate. Depending on the software or model used, data entered into the system may become the property of the software's creators. It is crucial to exercise caution when inputting sensitive information, such as patient data, into these systems. Understanding where and how data is stored (i.e., whether on your servers or in the cloud) is essential to safeguard privacy and confidentiality.
 
 ## Mastering the Use of Generative AI Tools
 
