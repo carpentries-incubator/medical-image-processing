@@ -342,7 +342,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Generative AI in Medical Imaging</h1>
-        <p>Last updated on 2024-08-15 |
+        <p>Last updated on 2026-05-14 |
 
         <a href="https://github.com/esciencecenter-digital-skills/medical-image-processing/edit/main/episodes/generative_ai.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -393,13 +393,19 @@ numerous other tasks. Of particular interest to participants in this
 course are the capabilities of LLMs to generate code and produce large
 volumes of synthetic data. Ongoing research continues to explore these
 capabilities.</p>
-<p>However, the safety implications of these technologies remain a
-subject of debate. Depending on the software or model used, data entered
-into the system may become the property of the software’s creators. It
-is crucial to exercise caution when inputting sensitive information,
-such as patient data, into these systems. Understanding where and how
-data is stored (i.e., whether on your servers or in the cloud) is
-essential to safeguard privacy and confidentiality.</p>
+<p>Since this lesson was originally created there has been a rise of
+generative models that are specifically used to create code. The
+possibilities and ethical concerns for this type of generative AI could
+comprise an entire workshop in and of itself. There is indeed a course
+in the carpentries incubator already: <a href="https://carpentries-incubator.github.io/software-development-with-genai/" class="external-link uri">https://carpentries-incubator.github.io/software-development-with-genai/</a>.</p>
+<p>The safety implications of these technologies, whether used for image
+or code creation, remain a subject of debate. Depending on the software
+or model used, data entered into the system may become the property of
+the software’s creators. It is crucial to exercise caution when
+inputting sensitive information, such as patient data, into these
+systems. Understanding where and how data is stored (i.e., whether on
+your servers or in the cloud) is essential to safeguard privacy and
+confidentiality.</p>
 </section><section><h2 class="section-heading" id="mastering-the-use-of-generative-ai-tools">Mastering the Use of Generative AI Tools<a class="anchor" aria-label="anchor" href="#mastering-the-use-of-generative-ai-tools"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="architectures-of-generative-ai">Architectures of Generative AI<a class="anchor" aria-label="anchor" href="#architectures-of-generative-ai"></a></h3>
@@ -445,12 +451,14 @@ biases</li>
 </ul><p><a href="https://github.com/Stability-AI/StableDiffusion" class="external-link">Stable
 Diffusion</a> is an open-source tool widely used for image generation,
 capable of running locally on your machine. While older versions
-typically require GPUs, recent builds are rumored to run on CPUs,
-although at a slower pace. For efficient large-scale image generation,
-utilizing a GPU is recommended to save time.</p>
-<p>One limitation of Stable Diffusion, and similar tools, is that the
-model cannot be customized with your own datasets, restricting the
-ability to train or modify it according to specific needs.</p>
+typically require GPUs, recent builds can run on CPUs, although at a
+slower pace. For efficient large-scale image generation, utilizing a GPU
+is recommended to save time.</p>
+<p>One historical limitation of older versions of Stable Diffusion, and
+similar tools, is that the models could be customized with your own
+datasets, restricting the ability to train or modify it according to
+specific needs. However there are now methods to fine-tune with custom
+datasets</p>
 <div id="challenge-assessing-the-risks-of-local-model-deployment" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -470,7 +478,7 @@ on your machine?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>One significant risk of running any model locally is the potential
 for malicious code. Since you need to download the model to your
@@ -528,6 +536,8 @@ points, square images)</li>
 pathologist” to guide the tool</li>
 <li>For more accurate outputs, fine-tune foundation models with your
 specific data</li>
+<li>If using genAI to create code specify the language version, and read
+the code for bugs before commiting it</li>
 </ol><p>These tips will help you optimize the quality and relevance of the
 content generated by AI tools.</p>
 </div>
@@ -538,7 +548,7 @@ following image was generated from the misspelling of “X-ray” with a
 popular AI tool:</p>
 <figure><img src="../fig/chest_xay.png" alt="Misled image" class="figure mx-auto d-block"><div class="figcaption">Image generated by Dr. Candace Makeda Moore
 prompting <a href="https://www.adobe.com/products/firefly.html" class="external-link">Adobe
-Firely</a>.</div>
+Firefly</a>.</div>
 </figure><p>While this result is laughable, more subtle mistakes can be harder to
 identify, especially for those without extensive training in a specific
 field. Therefore, having a specialist review the generated data is
@@ -637,9 +647,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://esciencecenter-digital-skills.github.io/medical-image-processing/instructor/generative_ai.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/medical-image-processing/instructor/generative_ai.html",
-  "dateCreated": "2025-03-18",
-  "dateModified": "2024-08-15",
-  "datePublished": "2026-05-12"
+  "dateCreated": "2026-05-14",
+  "dateModified": "2026-05-14",
+  "datePublished": "2026-05-14"
 }
 
   </script><script>
